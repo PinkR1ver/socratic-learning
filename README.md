@@ -1,4 +1,4 @@
-# learn-method
+# socratic-learning
 
 Learning verification through the **Socratic Method** — powered by AI, driven by your own thinking.
 
@@ -37,7 +37,7 @@ check if I really know the Chinchilla paper
 use the Socratic method on my antenna notes
 ```
 
-The skill automatically finds the relevant note in the digital garden and begins questioning.
+The skill works with any source — local files, URLs, pasted text, or just a topic name. The agent proactively hunts down the material and begins questioning.
 
 ### Example Session
 
@@ -85,35 +85,35 @@ The Socratic method reveals *unknown unknowns* — the gaps you didn't even know
 
 ```bash
 # Clone this repo
-git clone https://github.com/PinkR1ver/learn-method.git
+git clone https://github.com/PinkR1ver/socratic-learning.git
 
 # Symlink the skill to Claude Code
-mkdir -p ~/.claude/skills/socratic-method
-ln -s $(pwd)/learn-method/skills/socratic-method/SKILL.md \
-      ~/.claude/skills/socratic-method/SKILL.md
+mkdir -p ~/.claude/skills/quiz
+ln -s $(pwd)/socratic-learning/skills/quiz/SKILL.md \
+      ~/.claude/skills/quiz/SKILL.md
 
 # Symlink the skill to Codex
-mkdir -p ~/.codex/skills/socratic-method
-ln -s $(pwd)/learn-method/skills/socratic-method/SKILL.md \
-      ~/.codex/skills/socratic-method/SKILL.md
+mkdir -p ~/.codex/skills/quiz
+ln -s $(pwd)/socratic-learning/skills/quiz/SKILL.md \
+      ~/.codex/skills/quiz/SKILL.md
 ```
 
 Or copy directly (if you prefer not to symlink):
 
 ```bash
-cp learn-method/skills/socratic-method/SKILL.md \
-   ~/.claude/skills/socratic-method/SKILL.md
-cp learn-method/skills/socratic-method/SKILL.md \
-   ~/.codex/skills/socratic-method/SKILL.md
+cp socratic-learning/skills/quiz/SKILL.md \
+   ~/.claude/skills/quiz/SKILL.md
+cp socratic-learning/skills/quiz/SKILL.md \
+   ~/.codex/skills/quiz/SKILL.md
 ```
 
 ## Project Structure
 
 ```
-learn-method/
+socratic-learning/
 ├── README.md
 └── skills/
-    └── socratic-method/
+    └── quiz/
         └── SKILL.md          # The Socratic tutoring skill
 ```
 

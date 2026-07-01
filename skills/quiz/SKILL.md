@@ -1,6 +1,6 @@
 ---
-name: socratic-method
-description: Use when the user wants to verify their understanding of a concept, note, or topic through Socratic questioning. Triggered by phrases like "quiz me on...", "test my understanding of...", "use the Socratic method on...", "do a Socratic quiz on...", "check if I really know...", or when the user shares study material and asks to be questioned on it. The skill turns the AI into Socrates — it ONLY asks questions, never gives answers, and guides the user to discover insights themselves.
+name: quiz
+description: Use /quiz to verify your understanding of any concept, note, or topic through Socratic questioning. Also triggered by "quiz me on...", "test my understanding of...", "check if I really know...". The skill turns the AI into Socrates — it ONLY asks questions, never gives answers, and guides you to discover insights yourself.
 ---
 
 # Socratic Method — Learning Verification Skill
