@@ -83,29 +83,14 @@ The Socratic method reveals *unknown unknowns* — the gaps you didn't even know
 
 ## Installation
 
-```bash
-# Clone this repo
-git clone https://github.com/PinkR1ver/socratic-learning.git
+Paste this into Claude Code or Codex — the agent will install it:
 
-# Symlink the skill to Claude Code
-mkdir -p ~/.claude/skills/quiz
-ln -s $(pwd)/socratic-learning/skills/quiz/SKILL.md \
-      ~/.claude/skills/quiz/SKILL.md
-
-# Symlink the skill to Codex
-mkdir -p ~/.codex/skills/quiz
-ln -s $(pwd)/socratic-learning/skills/quiz/SKILL.md \
-      ~/.codex/skills/quiz/SKILL.md
+```
+Install this as a global skill for both Claude Code and Codex:
+https://raw.githubusercontent.com/PinkR1ver/socratic-learning/main/skills/quiz/SKILL.md
 ```
 
-Or copy directly (if you prefer not to symlink):
-
-```bash
-cp socratic-learning/skills/quiz/SKILL.md \
-   ~/.claude/skills/quiz/SKILL.md
-cp socratic-learning/skills/quiz/SKILL.md \
-   ~/.codex/skills/quiz/SKILL.md
-```
+The agent reads the skill file, creates the right directories, and sets it up. No manual commands needed.
 
 ## Project Structure
 
