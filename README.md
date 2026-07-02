@@ -12,9 +12,12 @@ I found myself staring at beautifully structured notes and wondering: *"Do I act
 
 ## The Solution
 
-A **Socratic Method skill** that turns any AI agent (Claude Code, Codex) into Socrates.
+Two companion skills for Claude Code and Codex:
 
-Instead of asking the AI to *explain* concepts to me, it does the opposite: the AI only **asks questions**, and I must answer from my own understanding. It probes deeper with each exchange, following a 5-level depth progression:
+- `quiz`: turns the agent into a Socratic learning partner.
+- `socratic-session-note`: saves completed quiz sessions back into a Markdown note with a visible learning summary and a collapsed QA transcript.
+
+Instead of asking the AI to *explain* concepts to me, `/quiz` does the opposite: the AI primarily **asks questions**, and I must answer from my own understanding. It probes deeper with each exchange, following a 5-level depth progression:
 
 ```
 Level 1: Basic Recall     — "Can you say it in your own words?"
@@ -24,7 +27,7 @@ Level 4: Critical View    — "What are the limits? When does this fail?"
 Level 5: Synthesis        — "What new thing can you create from these ideas?"
 ```
 
-The AI never lectures, never corrects, never gives answers. It only asks — forcing me to confront what I actually know vs. what I merely recognize.
+The AI stays in Socratic mode by default: it asks, tracks mastery across the core ideas, escalates misconceptions through focused prompts, and closes when understanding is demonstrated. If I explicitly leave Socratic mode, it can provide a concise correction before resuming.
 
 ## Usage
 
@@ -38,6 +41,14 @@ use the Socratic method on my antenna notes
 ```
 
 The skill works with any source — local files, URLs, pasted text, or just a topic name. The agent proactively hunts down the material and begins questioning.
+
+To archive a completed session into a note:
+
+```
+Use $socratic-session-note to summarize this /quiz session and append the hidden QA block to content/path/to/note.md
+```
+
+For repeated quiz sessions on the same note, the archival skill preserves each collapsed QA transcript and updates a cumulative `Socratic Learning Summary`.
 
 ### Example Session
 
@@ -83,14 +94,21 @@ The Socratic method reveals *unknown unknowns* — the gaps you didn't even know
 
 ## Installation
 
-Paste this into Claude Code or Codex — the agent will install it:
+Paste this into Claude Code or Codex — the agent will install the quiz skill:
 
 ```
 Install this as a global skill for both Claude Code and Codex:
 https://raw.githubusercontent.com/PinkR1ver/socratic-learning/main/skills/quiz/SKILL.md
 ```
 
-The agent reads the skill file, creates the right directories, and sets it up. No manual commands needed.
+To install the session archival skill as well:
+
+```
+Install this as a global skill for both Claude Code and Codex:
+https://github.com/PinkR1ver/socratic-learning/tree/main/skills/socratic-session-note
+```
+
+The agent reads the skill files, creates the right directories, and sets them up. No manual commands needed.
 
 ## Project Structure
 
@@ -98,8 +116,14 @@ The agent reads the skill file, creates the right directories, and sets it up. N
 socratic-learning/
 ├── README.md
 └── skills/
-    └── quiz/
-        └── SKILL.md          # The Socratic tutoring skill
+    ├── quiz/
+    │   └── SKILL.md          # The Socratic questioning skill
+    └── socratic-session-note/
+        ├── SKILL.md          # Summarize/archive completed sessions
+        ├── agents/
+        │   └── openai.yaml
+        └── scripts/
+            └── append_socratic_session.py
 ```
 
 ## Prerequisites
