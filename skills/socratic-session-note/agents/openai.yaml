@@ -1,4 +1,0 @@
-interface:
-  display_name: "Socratic Session Note"
-  short_description: "Append hidden Socratic quiz QA to notes"
-  default_prompt: "Use $socratic-session-note to summarize this /quiz session and append the hidden QA block to the target note."

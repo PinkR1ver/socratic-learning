@@ -12,10 +12,9 @@ I found myself staring at beautifully structured notes and wondering: *"Do I act
 
 ## The Solution
 
-Two companion skills for Claude Code and Codex:
+A global skill for Claude Code and Codex:
 
 - `quiz`: turns the agent into a Socratic learning partner.
-- `socratic-session-note`: saves completed quiz sessions back into a Markdown note with a visible learning summary and a collapsed QA transcript.
 
 Instead of asking the AI to *explain* concepts to me, `/quiz` does the opposite: the AI primarily **asks questions**, and I must answer from my own understanding. It probes deeper with each exchange, following a 5-level depth progression:
 
@@ -41,14 +40,6 @@ use the Socratic method on my antenna notes
 ```
 
 The skill works with any source — local files, URLs, pasted text, or just a topic name. The agent proactively hunts down the material and begins questioning.
-
-To archive a completed session into a note:
-
-```
-Use $socratic-session-note to summarize this /quiz session and append the hidden QA block to content/path/to/note.md
-```
-
-For repeated quiz sessions on the same note, the archival skill preserves each collapsed QA transcript and updates a cumulative `Socratic Learning Summary`.
 
 ### Example Session
 
@@ -101,14 +92,7 @@ Install this as a global skill for both Claude Code and Codex:
 https://raw.githubusercontent.com/PinkR1ver/socratic-learning/main/skills/quiz/SKILL.md
 ```
 
-To install the session archival skill as well:
-
-```
-Install this as a global skill for both Claude Code and Codex:
-https://github.com/PinkR1ver/socratic-learning/tree/main/skills/socratic-session-note
-```
-
-The agent reads the skill files, creates the right directories, and sets them up. No manual commands needed.
+The agent reads the skill file, creates the right directories, and sets it up. No manual commands needed.
 
 ## Project Structure
 
@@ -116,14 +100,8 @@ The agent reads the skill files, creates the right directories, and sets them up
 socratic-learning/
 ├── README.md
 └── skills/
-    ├── quiz/
-    │   └── SKILL.md          # The Socratic questioning skill
-    └── socratic-session-note/
-        ├── SKILL.md          # Summarize/archive completed sessions
-        ├── agents/
-        │   └── openai.yaml
-        └── scripts/
-            └── append_socratic_session.py
+    └── quiz/
+        └── SKILL.md          # The Socratic questioning skill
 ```
 
 ## Prerequisites
